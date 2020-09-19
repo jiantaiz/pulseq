@@ -1,5 +1,5 @@
 seq=mr.Sequence();              % Create a new sequence object
-fov=256e-3; Nx=256; Ny=256;     % Define FOV and resolution
+fov=256e-3; Nx=10; Ny=10;     % Define FOV and resolution
 alpha=10;                       % flip angle
 sliceThickness=3e-3;            % slice
 %TE=[7.38 9.84]*1e-3;            % give a vector here to have multiple TEs (e.g. for field mapping)

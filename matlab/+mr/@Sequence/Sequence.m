@@ -84,6 +84,7 @@ classdef Sequence < handle
         
         % See write.m
         write(obj,filename)
+        MyWrite(obj,filename,Id)
         
         % See readBinary.m
         readBinary(obj,filename);

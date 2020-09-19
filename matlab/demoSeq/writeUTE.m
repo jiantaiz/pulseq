@@ -2,14 +2,14 @@
 % tricks yet. Achieves TE in the range of 300-400 us
 
 seq=mr.Sequence();              % Create a new sequence object
-fov=250e-3; Nx=256;             % Define FOV and resolution
+fov=250e-3; Nx=10;             % Define FOV and resolution
 alpha=10;                       % flip angle
 sliceThickness=3e-3;            % slice
 TR=10e-3;                       % TR
-Nr=128;                         % number of radial spokes
+Nr=1;                         % number of radial spokes
 delta= 2* pi / Nr;              % angular increment; try golden angle pi*(3-5^0.5) or 0.5 of it
 ro_duration=2.4e-3;             % read-out time: controls RO bandwidth and T2-blurring
-ro_os=2;                        % oversampling
+ro_os=1;                        % oversampling
 ro_asymmetry=0.97;              % 0: fully symmetric 1: half-echo
 minRF_to_ADC_time=50e-6;        % the parameter wich defines TE (together with the RO asymmetyry)
 
@@ -91,8 +91,10 @@ figure; plot(gw'); % plot the entire gradient shape
 time_axis=(1:(size(ktraj,2)))*sys.gradRasterTime;
 figure; plot(time_axis, ktraj'); % plot the entire k-space trajectory
 hold; plot(t_adc,ktraj_adc(1,:),'.'); % and sampling points on the kx-axis
+%%
 figure; plot(ktraj(1,:),ktraj(2,:),'b'); % a 2D plot
 axis('equal'); % enforce aspect ratio for the correct trajectory display
+%%
 hold;plot(ktraj_adc(1,:),ktraj_adc(2,:),'r.'); % plot the sampling points
 
 %
